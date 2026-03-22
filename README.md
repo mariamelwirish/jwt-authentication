@@ -6,6 +6,14 @@ Built as a learning project before working on a larger full-stack application.
 
 ---
 
+## Notes
+
+Full project notes covering every concept in detail — Docker, virtual environments, SQLAlchemy, JWT, bcrypt, the repository/service pattern, and more:
+
+[View project notes on Notion](https://mariamelwirish.notion.site/JWT-Authentication-32772029a06f80588454d62d6cb7e1ab?source=copy_link)
+
+---
+
 ## What it does
 
 - User signup with hashed passwords (bcrypt)
@@ -70,8 +78,8 @@ fastapi_jwt/
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/mariamelwirish/jwt-authentication.git
-cd jwt-authentication
+git clone https://github.com/mariamelwirish/jwt_authentication.git
+cd jwt_authentication
 ```
 
 ### 2. Start the PostgreSQL container
@@ -208,3 +216,9 @@ Response:
 2. User logs in — bcrypt verifies the password against the stored hash
 3. On successful login — a JWT token is generated with the user's ID and an expiry time embedded in the payload
 4. For protected routes — the token is sent in the `Authorization` header, the server verifies the signature, checks expiry, extracts the user ID, and queries the database for that user
+
+---
+
+## Credit
+
+Built by following the [FastAPI JWT Authorization and Authentication](https://www.youtube.com/watch?v=X_9dZXw2rs4&list=PLWBhA495dLiP46uUtggjVsAnNFatrwazu) playlist by [techwithgio](https://www.youtube.com/@techwithgio).

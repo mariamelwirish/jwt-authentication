@@ -1,0 +1,20 @@
+from .base import BaseRepository
+from app.db.models.user import User
+from app.db.schema.user import UserInSignup
+
+class UserRepository(BaseRepository):
+    def create_user(self, user_data: UserInSignup):
+        newUser = User(**user_data.model_dump(exclude_none = True))
+        self.session.add(newUser)
+        self.session.commit()
+        self.session.refresh(newUser)
+        return newUser
+    
+    def user_exist_by_email(self, email: str):
+        return self.session.query(User).filter_by(email=email).first() is not None
+    
+    def get_user_by_email(self, email: str):
+        return self.session.query(User).filter_by(email=email).first()
+    
+    def get_user_by_id(self, id: int):
+        return self.session.query(User).filter_by(id=id).first()
